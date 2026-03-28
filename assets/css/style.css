@@ -1,0 +1,150 @@
+/* Minimal starter styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+    Arial;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  color: #111;
+}
+h1 {
+  margin: 0 0 1rem;
+}
+/* Clean canvas stylesheet - add styles as you build */
+
+/* Basic clean scaffold styles */
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --card-bg: #f9fafb;
+  --accent: #2563eb;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px;
+}
+.page {
+  background-color: #ececec;
+}
+.container {
+  max-width: 720px;
+  width: 100%;
+}
+.header {
+  margin-bottom: 16px;
+}
+h1 {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.card {
+  width: 100%;
+  height: 220px;
+  perspective: 1000px;
+  margin: 20px 0;
+}
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card.is-flipped .card__inner {
+  transform: rotateY(180deg);
+}
+.card__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
+  font-size: 1.1rem;
+}
+.card__face--back {
+  transform: rotateY(180deg);
+}
+.controls {
+  display: flex;
+  gap: 8px;
+}
+.controls button {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.controls button:hover {
+  border-color: var(--accent);
+}
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+/* small responsive */
+@media (max-width: 420px) {
+  .card {
+    height: 180px;
+  }
+  .card__face {
+    font-size: 1rem;
+    padding: 16px;
+  }
+  /* Minimal starter styles */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+      Arial;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #f9f9f9;
+    color: #111;
+  }
+  h1 {
+    margin: 0 0 1rem;
+  }
+}

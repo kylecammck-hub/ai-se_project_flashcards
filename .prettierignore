@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.cache
+.DS_Store
+coverage
+/*.min.js
+/*.bundle.js
+/.pnp
+/.pnp.js

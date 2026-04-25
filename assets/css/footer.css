@@ -5,3 +5,17 @@
   color: #00000080;
   margin: 0;
 }
+.footer {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 550px) {
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ececec;
+  }
+}

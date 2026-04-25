@@ -40,3 +40,21 @@
   gap: 20px;
   align-items: flex-start;
 }
+@media (max-width: 550px) {
+  .decks__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .decks__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .decks__new-deck-btn {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 325 / 205;
+  }
+}

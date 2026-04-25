@@ -59,3 +59,11 @@
 .deck_color_purple { background-color: #aa8ef0; }
 .deck_color_orange { background-color: #ee955e; }
 .deck_color_yellow { background-color: #f5d770; }
+@media (max-width: 550px) {
+  .deck {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    aspect-ratio: 325 / 205;
+  }
+}

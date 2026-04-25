@@ -21,3 +21,12 @@
 .page__main-content_type_carousel {
   margin-top: 106px;
 }
+@media (max-width: 550px) {
+  .page {
+    padding: 20px;
+  }
+
+  .page__main-content {
+    margin-top: 28px;
+  }
+}

@@ -77,3 +77,42 @@
 .carousel__btn_type_flip {
   margin-top: 24px;
 }
+
+.carousel__row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.carousel__new-card-btn,
+.carousel__practice-btn {
+  height: 44px;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.carousel__practice-btn {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+@media (max-width: 550px) {
+  .carousel__card {
+    width: 100%;
+    aspect-ratio: 440 / 300;
+    height: auto;
+  }
+
+  .carousel__row {
+    width: 100%;
+  }
+}

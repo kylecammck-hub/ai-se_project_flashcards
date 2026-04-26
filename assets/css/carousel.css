@@ -106,10 +106,39 @@
 }
 
 @media (max-width: 550px) {
+  .carousel__content {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    grid-template-areas:
+      "left card right"
+      "left flip right";
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+
   .carousel__card {
     width: 100%;
-    aspect-ratio: 440 / 300;
     height: auto;
+    aspect-ratio: 440 / 300;
+    grid-area: card;
+    box-sizing: border-box;
+  }
+
+  .carousel__btn_type_left {
+    grid-area: left;
+    align-self: center;
+  }
+
+  .carousel__btn_type_right {
+    grid-area: right;
+    align-self: center;
+  }
+
+  .carousel__btn_type_flip {
+    grid-area: flip;
+    margin-top: 0;
+    align-self: start;
   }
 
   .carousel__row {

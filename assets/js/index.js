@@ -1,14 +1,25 @@
 import { renderCarouselView } from "./carousel.js";
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colorMap.js";
+
 const deckTemplate = document.querySelector("#deck-template");
 const decksList = document.querySelector(".decks__list");
 const carouselSection = document.querySelector("#carousel");
 const mainContent = document.querySelector(".page__main-content");
+const homeSection = document.querySelector("#home");
+const notFoundSection = document.querySelector("#not-found");
 
+const sections = [homeSection, carouselSection, notFoundSection];
+
+function showView(currentSection, display) {
+  sections.forEach((section) => {
+    section.style.display = "none";
+  });
+  mainContent.classList.remove("page__main-content_type_carousel");
+  currentSection.style.display = display;
+}
 
 function createDeckEl(item) {
-
   const deckEl = deckTemplate.content.cloneNode(true).querySelector(".deck");
   deckEl.querySelector(".deck__title").textContent = item.name;
 
@@ -18,9 +29,9 @@ function createDeckEl(item) {
   deleteBtn.addEventListener("click", () => {
     deckEl.remove();
   });
-deckEl.querySelector(".deck__count").textContent = `${item.cards.length} cards`;
-deckEl.querySelector(".deck__link").href = `#carousel/${item.id}`;
-return deckEl;
+  deckEl.querySelector(".deck__count").textContent = `${item.cards.length} cards`;
+  deckEl.querySelector(".deck__link").href = `#carousel/${item.id}`;
+  return deckEl;
 }
 
 function renderDeckEl(item) {
@@ -29,26 +40,20 @@ function renderDeckEl(item) {
 }
 
 decks.forEach(renderDeckEl);
-const homeSection = document.querySelector("#home");
-const notFoundSection = document.querySelector("#not-found");
 
 function handleRoute() {
   const hash = window.location.hash.slice(1) || "home";
 
-  // Hide all sections
-  homeSection.style.display = "none";
-  notFoundSection.style.display = "none";
-  carouselSection.style.display = "none";
-  mainContent.classList.remove("page__main-content_type_carousel");
-
   if (hash === "home") {
-    homeSection.style.display = "";
+    showView(homeSection, "");
   } else if (hash.startsWith("carousel/")) {
+    showView(carouselSection, "");
+    mainContent.classList.add("page__main-content_type_carousel");
     const deckId = hash.split("/")[1];
     const deck = getDeckByID(deckId);
     renderCarouselView(deck);
   } else {
-    notFoundSection.style.display = "";
+    showView(notFoundSection, "");
   }
 }
 

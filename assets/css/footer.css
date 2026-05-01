@@ -19,3 +19,7 @@
     background-color: #ececec;
   }
 }
+
+.page_location_carousel .footer {
+  position: static;
+}

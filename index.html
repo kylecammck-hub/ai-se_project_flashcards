@@ -70,6 +70,14 @@
     <template id="card-template">
       <li class="card">
         <p class="card__text"></p>
+        <div class="card__row">
+          <button class="card__edit-btn" type="button" aria-label="Edit card">
+            <img src="assets/images/edit.svg" alt="Edit" />
+          </button>
+          <button class="card__delete-btn" type="button" aria-label="Delete card">
+            <img src="assets/images/delete.svg" alt="Delete" />
+          </button>
+        </div>
       </li>
     </template>
   </ul>
@@ -118,14 +126,6 @@
           </button>
         </div>
 
-        <div class="carousel__row">
-          <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
-            + New Card
-          </button>
-          <button class="carousel__practice-btn" type="button">
-            Practice
-          </button>
-        </div>
 
       </section>
 

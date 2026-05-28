@@ -31,4 +31,13 @@
     border-radius: 8px;
     cursor: pointer;
   }
+
+ .mobile-bar__btn_type_secondary {
+    background-color: #ffffff;
+    color: #1a1a1a;
+  }
+
+.mobile-bar_hidden {
+  display: none;
+}
 }

@@ -65,22 +65,39 @@
       </section>
 
 <section id="deck" class="deck-view">
-  <h2 class="deck-view__title"></h2>
+
+  <div class="deck-view__header">
+    <h2 class="deck-view__title"></h2>
+    <button class="carousel__practice-btn" type="button">Practice</button>
+  </div>
+<div class="deck-view__contents" >
   <ul class="deck-view__list">
+
     <template id="card-template">
       <li class="card">
         <p class="card__text"></p>
+        <div class="card__row">
+          <button class="card__edit-btn" type="button" aria-label="Edit this card">
+            <img src="assets/images/flip.svg" alt="Edit">
+          </button>
+          <button class="card__delete-btn" type="button" aria-label="Delete this card">
+            <img src="assets/images/delete.svg" alt="Delete" />
+          </button>
+        </div>
       </li>
     </template>
+
+    <li class="card card_type_new-card">
+      <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
+        + New Card
+      </button>
+    </li>
+
   </ul>
-  <div class="carousel__row">
-    <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
-      + New Card
-    </button>
-    <button class="carousel__practice-btn" type="button">
-      Practice
-    </button>
-  </div>
+ <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
+        + New Card
+      </button>
+    </div> 
 </section>
 
       <section id="carousel" class="carousel">
@@ -118,14 +135,6 @@
           </button>
         </div>
 
-        <div class="carousel__row">
-          <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
-            + New Card
-          </button>
-          <button class="carousel__practice-btn" type="button">
-            Practice
-          </button>
-        </div>
 
       </section>
 

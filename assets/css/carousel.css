@@ -41,10 +41,10 @@
   text-align: center;
 }
 
-.carousel__card_color_white { background-color: #fff; }
-.carousel__card_color_green { background-color: #64d583; }
-.carousel__card_color_blue { background-color: #91a8f9; }
-.carousel__card_color_pink { background-color: #ee92d7; }
+.carousel__card_color_white  { background-color: #fff; }
+.carousel__card_color_green  { background-color: #64d583; }
+.carousel__card_color_blue   { background-color: #91a8f9; }
+.carousel__card_color_pink   { background-color: #ee92d7; }
 .carousel__card_color_purple { background-color: #aa8ef0; }
 .carousel__card_color_orange { background-color: #ee955e; }
 .carousel__card_color_yellow { background-color: #f5d770; }
@@ -90,27 +90,58 @@
   width: 100%;
   max-width: 480px;
 }
-
-.carousel__new-card-btn,
-.carousel__practice-btn {
-  height: 44px;
-  background-color: #fff;
-  border: none;
-  border-radius: 8px;
+.carousel__new-card-btn {
+  display: flex;
+  width: 325px;
+  height: 205px;
+  padding: 20px;
   font-family: Inter, Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a80;
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
   box-sizing: border-box;
-  flex: 1;
 }
 
 .carousel__practice-btn {
   background-color: #1a1a1a;
   color: #fff;
+  flex: unset;           /* add this */
+  width: fit-content;    /* add this */
+  padding: 0 24px;       /* add this */
 }
 
+
 @media (max-width: 550px) {
+
+  .carousel__new-card-btn,
+  .carousel__practice-btn {
+    height: 44px;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-sizing: border-box;
+    flex: 1;
+  }
+
+  .deck-view__header .carousel__practice-btn {
+    display: none;
+  }
+
+  .carousel {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
   .carousel__content {
     display: grid;
     grid-template-columns: 44px 1fr 44px;
@@ -148,5 +179,54 @@
 
   .carousel__row {
     width: 100%;
+    display: none;
+  }
+
+} 
+
+  .carousel {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .carousel__content {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    grid-template-areas:
+      "left card right"
+      "left flip right";
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .carousel__card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 440 / 300;
+    grid-area: card;
+    box-sizing: border-box;
+  }
+
+  .carousel__btn_type_left {
+    grid-area: left;
+    align-self: center;
+  }
+
+  .carousel__btn_type_right {
+    grid-area: right;
+    align-self: center;
+  }
+
+  .carousel__btn_type_flip {
+    grid-area: flip;
+    margin-top: 0;
+    align-self: start;
+  }
+
+  .carousel__row {
+    width: 100%;
+    display: none;
   }
 }

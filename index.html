@@ -1,152 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Your Name" />
-    <meta
-      name="description"
-      content="A flashcard app to help you study and memorize topics more effectively."
-    />
-    <meta
-      name="keywords"
-      content="flashcards, study aids, learning materials, memorization"
-    />
-    <title>Flash Cards</title>
-    <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="assets/vendor/normalize.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="author" content="Your Name" />
+          <meta
+                  name="description"
+                  content="A flashcard app to help you study and memorize topics more effectively."
+                />
+          <meta
+                  name="keywords"
+                  content="flashcards, study aids, learning materials, memorization"
+                />
+          <title>Flash Cards</title>
+        <link rel="icon" href="favicon.ico" />
+        <link rel="stylesheet" href="assets/vendor/normalize.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+                rel="stylesheet"
+              />
+    </head>
   <body class="page">
-    <header class="header">
-      <h1 class="header__title">
-        <a class="header__link" href="#home">Flash Cards</a>
-      </h1>
-      <nav class="nav">
-        <ul class="nav__links">
-          <li><a class="nav__link" href="#home">My Decks</a></li>
-          <li><a class="nav__link" href="#about">About</a></li>
-        </ul>
-      </nav>
-    </header>
+      <header class="header">
+            <h1 class="header__title">
+                    <a class="header__link" href="#home">Flash Cards</a>a>
+            </h1>h1>
+            <nav class="nav">
+                    <ul class="nav__links">
+                              <li><a class="nav__link" href="#home">My Decks</a>a></li>
+                              <li><a class="nav__link" href="#about">About</a>a></li>
+                    </ul>ul>
+            </nav>nav>
+      </header>header>
+  
+      <main class="page__main-content">
+            <section id="home" class="decks">
+                    <h2 class="decks__title">My Decks</h2>h2>
+                    <div class="decks__cards">
+                              <ul class="decks__list">
+                                          <template id="deck-template">
+                                                        <li class="deck">
+                                                                          <a class="deck__link" href="#"></a>a>
+                                                                          <h3 class="deck__title"></h3>h3>
+                                                                          <div class="deck__row">
+                                                                                              <p class="deck__count"></p>p>
+                                                                                              <button
+                                                                                                                    class="deck__delete-btn"
+                                                                                                                    type="button"
+                                                                                                                    aria-label="Delete this deck"
+                                                                                                                  >
+                                                                                                                    <img src="assets/images/delete.svg" alt="Delete" />
+                                                                                                </button>
+                                                                          </div>div>
+                                                        </li>
+                                          </template>template>
+                              </ul>ul>
+                                <button class="decks__new-deck-btn" type="button">+ New Deck</button>
+                    </div>div>
+            </section>section>
 
-    <main class="page__main-content">
-
-      <section id="home" class="decks">
-        <h2 class="decks__title">My Decks</h2>
-        <div class="decks__cards">
-          <ul class="decks__list">
-            <template id="deck-template">
-              <li class="deck">
-                <a class="deck__link" href="#"></a>
-                <h3 class="deck__title"></h3>
-                <div class="deck__row">
-                  <p class="deck__count"></p>
-                  <button class="deck__delete-btn" type="button" aria-label="Delete this deck">
-                    <img src="assets/images/delete.svg" alt="Delete" />
-                  </button>
-                </div>
-              </li>
-            </template>
-          </ul>
-          <button class="decks__new-deck-btn" type="button">+ New Deck</button>
-        </div>
-      </section>
-
-      <section id="not-found" class="not-found">
-        <h2>404</h2>
-        <p>Page not found</p>
-      </section>
-
-<section id="deck" class="deck-view">
-
-  <div class="deck-view__header">
-    <h2 class="deck-view__title"></h2>
-    <button class="carousel__practice-btn" type="button">Practice</button>
-  </div>
-<div class="deck-view__contents" >
-  <ul class="deck-view__list">
-
-    <template id="card-template">
-      <li class="card">
-        <p class="card__text"></p>
-        <div class="card__row">
-          <button class="card__edit-btn" type="button" aria-label="Edit this card">
-            <img src="assets/images/flip.svg" alt="Edit">
-          </button>
-          <button class="card__delete-btn" type="button" aria-label="Delete this card">
-            <img src="assets/images/delete.svg" alt="Delete" />
-          </button>
-        </div>
-      </li>
-    </template>
-
-    <li class="card card_type_new-card">
-      <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
-        + New Card
-      </button>
-    </li>
-
-  </ul>
- <button class="carousel__new-card-btn carousel__new-card-btn_location_deck-view" type="button">
-        + New Card
-      </button>
-    </div> 
-</section>
-
-      <section id="carousel" class="carousel">
-        <h2 class="carousel__title">
-          HTML &amp; CSS Basics &middot; Card 1 of 20
-        </h2>
-
-        <div class="carousel__content">
-          <button
-            class="carousel__btn carousel__btn_type_left carousel__btn_disabled"
-            type="button"
-            aria-label="Previous card"
-          >
-            <img src="assets/images/left.svg" alt="Previous" />
-          </button>
-
-          <div class="carousel__card">
-            <p class="carousel__card-text">&lt;body&gt;&lt;/body&gt;</p>
-          </div>
-
-          <button
-            class="carousel__btn carousel__btn_type_right"
-            type="button"
-            aria-label="Next card"
-          >
-            <img src="assets/images/right.svg" alt="Next" />
-          </button>
-
-          <button
-            class="carousel__btn carousel__btn_type_flip"
-            type="button"
-            aria-label="Flip card"
-          >
-            <img src="assets/images/flip.svg" alt="Flip" />
-          </button>
-        </div>
-
-
-      </section>
-
-    </main>
-
-    <div class="mobile-bar">
-      <button class="decks__new-deck-btn mobile-bar__btn" type="button">+ New Deck</button>
-    </div>
-    <footer class="footer">
-      <p class="footer__text">&copy; 2024 Flash Cards. All rights reserved.</p>
-    </footer>
-    <script src="./assets/js/index.js" type="module"></script>
-  </body>
-</html>
-
+              <section id="not-found" class="not-found">
+                        <h2>404</h2>
+                      <p>Page not found</p>
+              </section>section>
+      
+            <section id="deck" class="deck-view">
+                    <div class="deck-view__header">
+                              <h2 class="deck-view__title"></h2>
+                              <button class="deck-view__practice-btn" type="button">
+                                          Practice
+                              </button>
+                    </div>div>
+                    <div class="deck-view__contents">
+                              <ul class="deck-view__list">
+                                          <template id="card-template">
+                                                        <li class="card">
+                                                          <p class="card__text"></p>
+                                                          <div class="card__row">
+                                                                            <button
+                                                                                                  class="card__edit-btn"
+                                                                                                  type="button"
+                                                                                                  aria-label="Edit this card"
+                                                                                                >
+                                                                                                <img src="assets/images/flip.svg" alt="Edit" />
+                                                                            </button>
+                                                                            <button
+                                                                                                  class="card__delete-btn"
+                                                                                                  type="button"
+                                                                                                  aria-label="Delete this card"
+                                                                                                >
+                                                                                                <img src="assets/images/delete.svg" alt="Delete" />
+                                                                            </button>
+                                                          </div>div>
+                                                        </li>
+                                          </template>template>
+                              
+                                          <li class="card card_type_new-card">
+                                            <button
+                                                              class="deck-view__new-card-btn deck-view__new-card-btn_location_list"
+                                                              type="button"
+                                                            >
+                                                            + New Card
+                                            </button>
+                                          </li>
+                              </ul>ul>
+                              <button
+                                            class="deck-view__new-card-btn deck-view__new-card-btn_location_contents"
+                                            type="button"
+                                          >
+                                          + New Card
+                              </button>
+                    </div>div>
+            </section>section>
+      
+            <section id="carousel" class="carousel">
+                    <h2 class="carousel__title">
+                              HTML &amp; CSS Basics &middot; Card 1 of 20
+                    </h2>
+            
+                    <div class="carousel__content">
+                              <button
+                                            class="carousel__btn carousel__btn_type_left carousel__btn_disabled"
+                                            type="button"
+                                            aria-label="Previous card"
+                                          >
+                                          <img src="assets/images/left.svg" alt="Previous" />
+                              </button>
+                    
+                              <div class="carousel__card">
+                                          <p class="carousel__card-text">&lt;body&gt;&lt;/body&gt;</p>
+                              </div>div>
+                    
+                              <button
+                                            class="carousel__btn carousel__btn_type_right"
+                                            type="button"
+                                            aria-label="Next card"
+                                          >
+                                          <img src="assets/images/right.svg" alt="Next" />
+                              </button>
+                    
+                              <button
+                                            class="carousel__btn carousel__btn_type_flip"
+                                            type="button"
+                                            aria-label="Flip card"
+                                          >
+                                          <img src="assets/images/flip.svg" alt="Flip" />
+                              </button>
+                    </div>div>
+            </section>section>
+      </main>main>
+  
+      <div class="mobile-bar">
+            <button class="mobile-bar__new-deck-btn" type="button">+ New Deck</button>
+      </div>div>
+      <footer class="footer">
+            <p class="footer__text">&copy; 2024 Flash Cards. All rights reserved.</p>
+      </footer>footer>
+      <script src="./assets/js/index.js" type="module"></script>
+  </body>body>
+</html>html></p></h2>
+                                                                                                                  </button>
+                                                        </li></li></title>
+    </head>

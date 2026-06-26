@@ -1,111 +1,172 @@
 .deck-view__title {
-  font-size: 40px;
-  font-weight: 700;
-  margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
 }
 
 .deck-view__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 .deck-view__list {
-  display: contents;
-  flex-wrap: wrap;
-  gap: 20px;
-  list-style: none;
-  margin: 0 0 24px;
-  padding: 0;
+    display: contents;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
 }
 
 .deck-view__contents {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.deck-view__practice-btn {
+    background-color: #1a1a1a;
+    color: #fff;
+    width: fit-content;
+    padding: 0 24px;
+    height: 44px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.deck-view__new-card-btn {
+    display: flex;
+    width: 325px;
+    height: 205px;
+    padding: 20px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a80;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .card {
-  width: 325px;
-  height: 205px;
-  min-height: 205px;
-  padding: 20px;
-  border-radius: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  list-style: none;
+    width: 325px;
+    height: 205px;
+    min-height: 205px;
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    list-style: none;
 }
 
 .card__text {
-  font-size: 20px;
-  font-weight: 700;
-  text-align: left;
-  margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
 }
 
 .card__row {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
 }
 
 .card__edit-btn,
 .card__delete-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
-.card_color_green  { background-color: #64d583; }
-.card_color_blue   { background-color: #91a8f9; }
-.card_color_pink   { background-color: #ee92d7; }
-.card_color_purple { background-color: #aa8ef0; }
-.card_color_orange { background-color: #ee955e; }
-.card_color_yellow { background-color: #f5d770; }
+.card_color_green {
+    background-color: #64d583;
+}
+
+.card_color_blue {
+    background-color: #91a8f9;
+}
+
+.card_color_pink {
+    background-color: #ee92d7;
+}
+
+.card_color_purple {
+    background-color: #aa8ef0;
+}
+
+.card_color_orange {
+    background-color: #ee955e;
+}
+
+.card_color_yellow {
+    background-color: #f5d770;
+}
 
 .card_type_new-card {
-  background-color: #d9d9d9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card_type_new-card .carousel__new-card-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 500;
-  color: #666;
+.card_type_new-card .deck-view__new-card-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    color: #666;
 }
 
 @media (max-width: 550px) {
+    .deck-view__title {
+          font-size: 32px;
+    }
 
-  .deck-view__title {
-    font-size: 32px;
+  .deck-view__new-card-btn_location_contents {
+        display: none;
   }
 
-  .carousel__new-card-btn_location_deck-view {
-    display: none;
+  .deck-view__practice-btn {
+        display: none;
   }
 
   .deck-view__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
   }
 
   .card {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    aspect-ratio: 325 / 205;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: auto;
+        aspect-ratio: 325 / 205;
   }
 
+  .deck-view__new-card-btn {
+        width: 100%;
+        height: 44px;
+        background-color: #fff;
+        font-size: 16px;
+        border-radius: 8px;
+        flex: 1;
+  }
 }

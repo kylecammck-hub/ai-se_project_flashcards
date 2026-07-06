@@ -28,6 +28,7 @@
 
 .carousel__card {
     width: 100%;
+    min-width: 0;
     height: auto;
     aspect-ratio: 440 / 300;
     grid-area: card;
@@ -49,6 +50,8 @@
     font-weight: 700;
     margin: 0;
     text-align: center;
+      overflow-wrap: break-word;
+      word-break: break-word;
 }
 
 .carousel__card_color_white {

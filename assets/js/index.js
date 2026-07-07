@@ -80,8 +80,7 @@ function handleRoute() {
   }   else if (hash === "new-deck") {
                   showView(newDeckSection, "");
                   mobileBar.classList.add("mobile-bar_hidden");
-  }
-  } else if (hash.startsWith("deck/")) {
+    } else if (hash.startsWith("deck/")) {
         const deckId = hash.split("/")[1];
         const deck = getDeckByID(deckId);
         if (deck) {

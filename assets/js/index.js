@@ -9,9 +9,10 @@ const mainContent = document.querySelector(".page__main-content");
 const homeSection = document.querySelector("#home");
 const notFoundSection = document.querySelector("#not-found");
 const deckSection = document.querySelector("#deck");
+const newDeckSection = document.querySelector("#new-deck");
 const mobileBar = document.querySelector(".mobile-bar");
 
-const sections = [homeSection, carouselSection, notFoundSection, deckSection];
+const sections = [homeSection, carouselSection, notFoundSection, deckSection, newDeckSection];
 
 function showView(currentSection, display) {
     sections.forEach((section) => {
@@ -76,6 +77,10 @@ function handleRoute() {
         showView(homeSection, "");
         mobileBar.innerHTML = `<button class="mobile-bar__new-deck-btn" type="button">+ New Deck</button>`;
         mobileBar.classList.remove("mobile-bar_hidden");
+  }   else if (hash === "new-deck") {
+                  showView(newDeckSection, "");
+                  mobileBar.classList.add("mobile-bar_hidden");
+  }
   } else if (hash.startsWith("deck/")) {
         const deckId = hash.split("/")[1];
         const deck = getDeckByID(deckId);
@@ -107,3 +112,7 @@ function handleRoute() {
 
 window.addEventListener("hashchange", handleRoute);
 handleRoute();
+
+document.querySelector("#home .decks__new-deck-btn").addEventListener("click", () => {
+        window.location.hash = "new-deck";
+});

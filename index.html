@@ -50,6 +50,38 @@
         <button class="decks__new-deck-btn" type="button">+ New Deck</button>
       </div>
     </section>
+    <section id="new-deck" class="new-deck" style="display: none;">
+    <h2 class="new-deck__title">New Deck</h2>
+    <form class="new-deck__form" id="new-deck-form">
+      <fieldset class="new-deck__color-picker">
+        <legend class="visually-hidden">Choose a deck color</legend>
+
+        <input type="radio" id="green" name="deck-color" value="#64d583" class="new-deck__color-input" checked aria-label="Green">
+        <label for="green" class="new-deck__color-label"></label>
+
+        <input type="radio" id="blue" name="deck-color" value="#91a8f9" class="new-deck__color-input" aria-label="Blue">
+        <label for="blue" class="new-deck__color-label"></label>
+
+        <input type="radio" id="orange" name="deck-color" value="#ee955e" class="new-deck__color-input" aria-label="Orange">
+        <label for="orange" class="new-deck__color-label"></label>
+
+        <input type="radio" id="pink" name="deck-color" value="#ee92d7" class="new-deck__color-input" aria-label="Pink">
+        <label for="pink" class="new-deck__color-label"></label>
+
+        <input type="radio" id="purple" name="deck-color" value="#aa8ef0" class="new-deck__color-input" aria-label="Purple">
+        <label for="purple" class="new-deck__color-label"></label>
+
+        <input type="radio" id="yellow" name="deck-color" value="#f5d770" class="new-deck__color-input" aria-label="Yellow">
+        <label for="yellow" class="new-deck__color-label"></label>
+      </fieldset>
+
+      <label class="new-deck__json-label" for="new-deck-json">
+        <textarea class="new-deck__json-input" id="new-deck-json" placeholder="Paste your deck JSON here"></textarea>
+      </label>
+
+          <button type="submit" class="new-deck__submit-btn" id="new-deck-submit" disabled>Create Deck</button>
+    </form>
+        </section>
 
     <section id="not-found" class="not-found">
       <h2>404</h2>

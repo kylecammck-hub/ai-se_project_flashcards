@@ -38,7 +38,7 @@ const submitBtnEl = document.querySelector("#new-deck-submit");
 const jsonTextareaEl = document.querySelector("#new-deck-json");
 
 function disableSubmitBtn() {
-    submitBtnEl.disabled = false;
+    submitBtnEl.disabled = true;
 }
 
 function handleNewDeckSubmit(evt) {

@@ -1,3 +1,4 @@
+import "./new-deck-view.js";
 import { renderCarouselView } from "./carousel.js";
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colorMap.js";

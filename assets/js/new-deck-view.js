@@ -115,3 +115,5 @@ function handleNewDeckSubmit(evt) {
 }
 
 newDeckFormEl.addEventListener("submit", handleNewDeckSubmit);
+
+export { disableSubmitBtn };

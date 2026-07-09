@@ -79,9 +79,16 @@
         <textarea class="new-deck__json-input" id="new-deck-json" placeholder="Paste your deck JSON here"></textarea>
       </label>
 
-          <button type="submit" class="new-deck__submit-btn" id="new-deck-submit" disabled>Create Deck</button>
+          <button type="submit" class="new-deck__submit-btn" id="new-deck-submit">Create Deck</button>
     </form>
         </section>
+
+        <div class="modal" id="new-deck-error-modal">
+                <div class="modal__container">
+                          <p class="modal__message"></p>
+                          <button type="button" class="modal__close-btn" id="new-deck-error-close-btn">Dismiss</button>
+                </div>
+        </div>
 
     <section id="not-found" class="not-found">
       <h2>404</h2>

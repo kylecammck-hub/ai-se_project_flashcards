@@ -12,10 +12,25 @@ const mainContent = document.querySelector(".page__main-content");
 let currentIndex = 0;
 let showingQuestion = true;
 
+/**
+ * Builds the title string shown above the carousel, indicating the
+ * deck name and the current card's position within the deck.
+ * @param {{ name: string, cards: Array<{ question: string, answer: string }> }} deck - The deck currently being displayed.
+ * @param {number} index - The zero-based index of the current card.
+ * @returns {string} A formatted title, e.g. "Deck Name · Card 2 of 10".
+ */
 function getCarouselTitleString(deck, index) {
   return `${deck.name} \u00B7 Card ${index + 1} of ${deck.cards.length}`;
 }
 
+/**
+ * Updates the carousel's visible content (card text, color, and title) to
+ * reflect the current card and whether the question or answer side is
+ * being shown. Also toggles the disabled state of the left/right
+ * navigation buttons when the first or last card is reached.
+ * @param {{ name: string, color: string, cards: Array<{ question: string, answer: string }> }} deck - The deck currently being displayed.
+ * @returns {void}
+ */
 function updateDisplay(deck) {
   const currentCard = deck.cards[currentIndex];
 
@@ -46,6 +61,13 @@ function updateDisplay(deck) {
   }
 }
 
+/**
+ * Initializes and displays the carousel view for a given deck, resetting
+ * navigation state to the first card's question side, and wiring up the
+ * left, right, and flip button click handlers.
+ * @param {{ name: string, color: string, cards: Array<{ question: string, answer: string }> }} deck - The deck object to render in the carousel.
+ * @returns {void}
+ */
 export function renderCarouselView(deck) {
   currentIndex = 0;
   showingQuestion = true;

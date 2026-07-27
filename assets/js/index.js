@@ -3,11 +3,11 @@ import { renderCarouselView } from "./carousel.js";
 import { fetchedDecks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colorMap.js";
 import {
-      getDecks,
-      deleteDeck,
-      addCard,
-      updateCard,
-      deleteCard,
+  getDecks,
+  deleteDeck,
+  addCard,
+  updateCard,
+  deleteCard,
 } from "./api.js";
 
 const deckTemplate = document.querySelector("#deck-template");
@@ -21,7 +21,14 @@ const newDeckSection = document.querySelector("#new-deck");
 const aboutSection = document.querySelector("#about");
 const mobileBar = document.querySelector(".mobile-bar");
 
-const sections = [homeSection, carouselSection, notFoundSection, deckSection, newDeckSection, aboutSection];
+const sections = [
+  homeSection,
+  carouselSection,
+  notFoundSection,
+  deckSection,
+  newDeckSection,
+  aboutSection,
+];
 
 /**
  * Shows the given section and hides all other tracked sections.
@@ -30,11 +37,11 @@ const sections = [homeSection, carouselSection, notFoundSection, deckSection, ne
  * @returns {void}
  */
 function showView(currentSection, display) {
-        sections.forEach((section) => {
-                    section.style.display = "none";
-        });
-        mainContent.classList.remove("page__main-content_type_carousel");
-        currentSection.style.display = display;
+  sections.forEach((section) => {
+    section.style.display = "none";
+  });
+  mainContent.classList.remove("page__main-content_type_carousel");
+  currentSection.style.display = display;
 }
 
 /**
@@ -44,29 +51,29 @@ function showView(currentSection, display) {
  * @returns {HTMLElement} The populated deck element.
  */
 function createDeckEl(item) {
-        const deckEl = deckTemplate.content.cloneNode(true).querySelector(".deck");
-        deckEl.querySelector(".deck__title").textContent = item.name;
+  const deckEl = deckTemplate.content.cloneNode(true).querySelector(".deck");
+  deckEl.querySelector(".deck__title").textContent = item.name;
 
-    const color = hexToString(item.color);
-        deckEl.classList.add(`deck_color_${color}`);
+  const color = hexToString(item.color);
+  deckEl.classList.add(`deck_color_${color}`);
 
-    const deleteBtn = deckEl.querySelector(".deck__delete-btn");
-        deleteBtn.addEventListener("click", () => {
-                    deleteDeck(item._id)
-                        .then(() => {
-                                            deckEl.remove();
-                                            const index = fetchedDecks.findIndex((deck) => deck._id === item._id);
-                                            if (index !== -1) {
-                                                                    fetchedDecks.splice(index, 1);
-                                            }
-                        })
-                        .catch(() => showError("Can't delete deck. Please try again."));
-        });
+  const deleteBtn = deckEl.querySelector(".deck__delete-btn");
+  deleteBtn.addEventListener("click", () => {
+    deleteDeck(item._id)
+      .then(() => {
+        deckEl.remove();
+        const index = fetchedDecks.findIndex((deck) => deck._id === item._id);
+        if (index !== -1) {
+          fetchedDecks.splice(index, 1);
+        }
+      })
+      .catch(() => showError("Can't delete deck. Please try again."));
+  });
 
-    deckEl.querySelector(".deck__count").textContent = `${item.cards.length} cards`;
-        deckEl.querySelector(".deck__link").href = `#deck/${item._id}`;
+  deckEl.querySelector(".deck__count").textContent = `${item.cards.length} cards`;
+  deckEl.querySelector(".deck__link").href = `#deck/${item._id}`;
 
-    return deckEl;
+  return deckEl;
 }
 
 /**
@@ -75,8 +82,8 @@ function createDeckEl(item) {
  * @returns {void}
  */
 function renderDeckEl(item) {
-        const deckEl = createDeckEl(item);
-        decksList.append(deckEl);
+  const deckEl = createDeckEl(item);
+  decksList.append(deckEl);
 }
 
 const cardTemplate = document.querySelector("#card-template");
@@ -92,38 +99,38 @@ const practiceBtn = document.querySelector(".deck-view__practice-btn");
  * @returns {HTMLElement} The populated card element.
  */
 function createCardEl(deck, card) {
-        const cardEl = cardTemplate.content.cloneNode(true).querySelector(".card");
-        cardEl.classList.add(`card_color_${hexToString(deck.color)}`);
-        cardEl.querySelector(".card__text").textContent = card.question;
+  const cardEl = cardTemplate.content.cloneNode(true).querySelector(".card");
+  cardEl.classList.add(`card_color_${hexToString(deck.color)}`);
+  cardEl.querySelector(".card__text").textContent = card.question;
 
-    cardEl.querySelector(".card__delete-btn").addEventListener("click", () => {
-                deleteCard(card._id)
-                    .then(() => {
-                                        cardEl.remove();
-                                        const index = deck.cards.findIndex((c) => c._id === card._id);
-                                        if (index !== -1) {
-                                                                deck.cards.splice(index, 1);
-                                        }
-                    })
-                    .catch(() => showError("Can't delete card. Please try again."));
-    });
+  cardEl.querySelector(".card__delete-btn").addEventListener("click", () => {
+    deleteCard(card._id)
+      .then(() => {
+        cardEl.remove();
+        const index = deck.cards.findIndex((c) => c._id === card._id);
+        if (index !== -1) {
+          deck.cards.splice(index, 1);
+        }
+      })
+      .catch(() => showError("Can't delete card. Please try again."));
+  });
 
-    cardEl.querySelector(".card__edit-btn").addEventListener("click", () => {
-                const newQuestion = window.prompt("Edit the card's question:", card.question);
-                if (!newQuestion) return;
-                const newAnswer = window.prompt("Edit the card's answer:", card.answer);
-                if (!newAnswer) return;
+  cardEl.querySelector(".card__edit-btn").addEventListener("click", () => {
+    const newQuestion = window.prompt("Edit the card's question:", card.question);
+    if (!newQuestion) return;
+    const newAnswer = window.prompt("Edit the card's answer:", card.answer);
+    if (!newAnswer) return;
 
-                                                                     updateCard(card._id, { question: newQuestion, answer: newAnswer })
-                    .then((updatedCard) => {
-                                        card.question = updatedCard.question;
-                                        card.answer = updatedCard.answer;
-                                        cardEl.querySelector(".card__text").textContent = updatedCard.question;
-                    })
-                    .catch(() => showError("Can't update card. Please try again."));
-    });
+    updateCard(card._id, { question: newQuestion, answer: newAnswer })
+      .then((updatedCard) => {
+        card.question = updatedCard.question;
+        card.answer = updatedCard.answer;
+        cardEl.querySelector(".card__text").textContent = updatedCard.question;
+      })
+      .catch(() => showError("Can't update card. Please try again."));
+  });
 
-    return cardEl;
+  return cardEl;
 }
 
 /**
@@ -133,17 +140,17 @@ function createCardEl(deck, card) {
  * @returns {void}
  */
 function handleAddCard(deck) {
-        const question = window.prompt("Enter the card's question:");
-        if (!question) return;
-        const answer = window.prompt("Enter the card's answer:");
-        if (!answer) return;
+  const question = window.prompt("Enter the card's question:");
+  if (!question) return;
+  const answer = window.prompt("Enter the card's answer:");
+  if (!answer) return;
 
-    addCard(deck._id, { question, answer })
-            .then((newCard) => {
-                            deck.cards.push(newCard);
-                            deckViewList.append(createCardEl(deck, newCard));
-            })
-            .catch(() => showError("Can't add card. Please try again."));
+  addCard(deck._id, { question, answer })
+    .then((newCard) => {
+      deck.cards.push(newCard);
+      deckViewList.append(createCardEl(deck, newCard));
+    })
+    .catch(() => showError("Can't add card. Please try again."));
 }
 
 /**
@@ -153,21 +160,21 @@ function handleAddCard(deck) {
  * @returns {void}
  */
 function renderDeckView(deck) {
-        deckViewTitle.textContent = deck.name;
-        deckViewList.innerHTML = "";
+  deckViewTitle.textContent = deck.name;
+  deckViewList.innerHTML = "";
 
-    deck.cards.forEach((card) => {
-                const cardEl = createCardEl(deck, card);
-                deckViewList.append(cardEl);
-    });
+  deck.cards.forEach((card) => {
+    const cardEl = createCardEl(deck, card);
+    deckViewList.append(cardEl);
+  });
 
-    document.querySelectorAll(".deck-view__new-card-btn").forEach((btn) => {
-                btn.onclick = () => handleAddCard(deck);
-    });
+  document.querySelectorAll(".deck-view__new-card-btn").forEach((btn) => {
+    btn.onclick = () => handleAddCard(deck);
+  });
 
-    practiceBtn.onclick = () => {
-                window.location.hash = `#carousel/${deck._id}`;
-    };
+  practiceBtn.onclick = () => {
+    window.location.hash = `#carousel/${deck._id}`;
+  };
 }
 
 /**
@@ -176,62 +183,62 @@ function renderDeckView(deck) {
  * @returns {void}
  */
 function handleRoute() {
-        const hash = window.location.hash.slice(1) || "home";
+  const hash = window.location.hash.slice(1) || "home";
 
-    if (hash === "home") {
-                showView(homeSection, "");
-                mobileBar.innerHTML = `<button class="mobile-bar__new-deck-btn" type="button">+ New Deck</button>`;
-                mobileBar.classList.remove("mobile-bar_hidden");
-    } else if (hash === "new-deck") {
-                showView(newDeckSection, "");
-                mobileBar.classList.add("mobile-bar_hidden");
-    } else if (hash === "about") {
-          showView(aboutSection, "");
-          mobileBar.classList.add("mobile-bar_hidden");
-    } else if (hash.startsWith("deck/")) {
-                const deckId = hash.split("/")[1];
-                const deck = getDeckByID(deckId);
-                if (deck) {
-                                showView(deckSection, "");
-                                renderDeckView(deck);
-                                mobileBar.innerHTML = `
-                                                <button class="mobile-bar__btn mobile-bar__btn_type_secondary" type="button">+ New Card</button>
-                                                                <button class="mobile-bar__btn" type="button">Practice</button>
-                                                                            `;
-                                mobileBar.classList.remove("mobile-bar_hidden");
-                                mobileBar.querySelector(".mobile-bar__btn_type_secondary").onclick = () => handleAddCard(deck);
-                                mobileBar.querySelector(".mobile-bar__btn:last-child").onclick = () => {
-                                                    window.location.hash = `#carousel/${deck._id}`;
-                                };
-                } else {
-                                showView(notFoundSection, "");
-                }
-    } else if (hash.startsWith("carousel/")) {
-                showView(carouselSection, "");
-                mainContent.classList.add("page__main-content_type_carousel");
-                const deckId = hash.split("/")[1];
-                const deck = getDeckByID(deckId);
-                renderCarouselView(deck);
-                mobileBar.classList.add("mobile-bar_hidden");
+  if (hash === "home") {
+    showView(homeSection, "");
+    mobileBar.innerHTML = `<button class="mobile-bar__new-deck-btn" type="button">+ New Deck</button>`;
+    mobileBar.classList.remove("mobile-bar_hidden");
+  } else if (hash === "new-deck") {
+    showView(newDeckSection, "");
+    mobileBar.classList.add("mobile-bar_hidden");
+  } else if (hash === "about") {
+    showView(aboutSection, "");
+    mobileBar.classList.add("mobile-bar_hidden");
+  } else if (hash.startsWith("deck/")) {
+    const deckId = hash.split("/")[1];
+    const deck = getDeckByID(deckId);
+    if (deck) {
+      showView(deckSection, "");
+      renderDeckView(deck);
+      mobileBar.innerHTML = `
+        <button class="mobile-bar__btn mobile-bar__btn_type_secondary" type="button">+ New Card</button>
+        <button class="mobile-bar__btn" type="button">Practice</button>
+      `;
+      mobileBar.classList.remove("mobile-bar_hidden");
+      mobileBar.querySelector(".mobile-bar__btn_type_secondary").onclick = () => handleAddCard(deck);
+      mobileBar.querySelector(".mobile-bar__btn:last-child").onclick = () => {
+        window.location.hash = `#carousel/${deck._id}`;
+      };
     } else {
-                showView(notFoundSection, "");
+      showView(notFoundSection, "");
     }
+  } else if (hash.startsWith("carousel/")) {
+    showView(carouselSection, "");
+    mainContent.classList.add("page__main-content_type_carousel");
+    const deckId = hash.split("/")[1];
+    const deck = getDeckByID(deckId);
+    renderCarouselView(deck);
+    mobileBar.classList.add("mobile-bar_hidden");
+  } else {
+    showView(notFoundSection, "");
+  }
 }
 
 window.addEventListener("hashchange", handleRoute);
 
-getDecks()
+document.addEventListener("DOMContentLoaded", () => {
+  getDecks()
     .then((decks) => {
-                fetchedDecks.push(...decks);
-                fetchedDecks.forEach(renderDeckEl);
+      fetchedDecks.push(...decks);
+      fetchedDecks.forEach(renderDeckEl);
     })
     .catch(() => showError("Can't fetch decks. Please refresh and try again."))
     .finally(() => {
-                handleRoute();
+      handleRoute();
     });
 
-document.querySelector("#home .decks__new-deck-btn").addEventListener("click", () => {
-        window.location.hash = "new-deck";
+  document.querySelector("#home .decks__new-deck-btn").addEventListener("click", () => {
+    window.location.hash = "new-deck";
+  });
 });
-
-/**
